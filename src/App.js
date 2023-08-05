@@ -15,10 +15,21 @@ function App() {
   
     reader.onload = (event) => {
       const book = ePub(event.target.result);
+      const rendition = book.renderTo("viewer", { width: "100%", height: "600px" });
+      rendition.display();
       book.loaded.metadata.then((metadata) => {
         console.log(metadata.title);
       });
+
+      document.getElementById("next").addEventListener("click", function() {
+        rendition.next();
+      });
+  
+      document.getElementById("prev").addEventListener("click", function() {
+        rendition.prev();
+      });
     };
+
   
     reader.readAsArrayBuffer(file);
   };
@@ -31,6 +42,9 @@ function App() {
       </header>
       <main>
         <input type="file" accept=".epub" onChange={handleFileUpload} />
+        <div id="viewer" style={{ width: "100%", height: "600px" }}></div>
+        <button id="prev" type="button">Previous</button>
+        <button id="next" type="button">Next</button>
       </main>
     </div>
   );
