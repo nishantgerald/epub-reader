@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.viewer-frame {
+  border: 2px solid #000; /* Here you can customize your frame */
+  padding: 10px; /* Here you can customize padding inside the frame */
+  width: 80%; /* Here you can customize frame width */
+  height: 620px; /* Here you can customize frame height, this should be viewer height + 2*padding */
+  overflow: auto; /* Enables scrollbars when content exceeds frame */
+  margin: auto; /* Center the frame */
+}

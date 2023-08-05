@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ePub from 'epubjs';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import './App.css';
 
 function App() {
   const [selectedFile, setSelectedFile] = useState();
@@ -12,7 +14,7 @@ function App() {
 
   const handleEpub = (file) => {
     const reader = new FileReader();
-  
+
     reader.onload = (event) => {
       const book = ePub(event.target.result);
       const rendition = book.renderTo("viewer", { width: "100%", height: "600px" });
@@ -24,27 +26,30 @@ function App() {
       document.getElementById("next").addEventListener("click", function() {
         rendition.next();
       });
-  
+
       document.getElementById("prev").addEventListener("click", function() {
         rendition.prev();
       });
     };
 
-  
     reader.readAsArrayBuffer(file);
   };
-  
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>EPUB Reader</h1>
       </header>
       <main>
         <input type="file" accept=".epub" onChange={handleFileUpload} />
-        <div id="viewer" style={{ width: "100%", height: "600px" }}></div>
-        <button id="prev" type="button">Previous</button>
-        <button id="next" type="button">Next</button>
+        <div className="viewer-frame">
+          <div id="viewer" style={{ width: "100%", height: "600px" }}></div>
+        </div>
+        <button id="prev" type="button" className="btn">
+          <FaArrowLeft /> Previous
+        </button>
+        <button id="next" type="button" className="btn">
+          Next <FaArrowRight />
+        </button>
       </main>
     </div>
   );
