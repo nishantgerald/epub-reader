@@ -4,6 +4,7 @@ import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import './App.css';
 
 function App() {
+  // eslint-disable-next-line
   const [selectedFile, setSelectedFile] = useState();
 
   const handleFileUpload = (event) => {
