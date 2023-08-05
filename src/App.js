@@ -30,6 +30,19 @@ function App() {
       document.getElementById("prev").addEventListener("click", function() {
         rendition.prev();
       });
+
+      document.onkeydown = (e) => {
+        if (e.key === "ArrowUp") {
+          rendition.prev();
+        } else if (e.key === "ArrowDown") {
+          rendition.next();
+        } else if (e.key === "ArrowLeft") {
+          rendition.prev();
+        } else if (e.key === "ArrowRight") {
+          rendition.next();
+        }
+      };
+
     };
 
     reader.readAsArrayBuffer(file);
