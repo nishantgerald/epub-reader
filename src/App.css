@@ -47,6 +47,35 @@
 }
 
 .viewer-frame {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 1em;
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-1 {
+  min-height: 100vh; /* This ensures the container occupies the full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.container-next-prev {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
 }

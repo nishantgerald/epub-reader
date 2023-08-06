@@ -24,11 +24,11 @@ function App() {
         console.log(metadata.title);
       });
 
-      document.getElementById("next").addEventListener("click", function() {
+      document.getElementById("next").addEventListener("click", function () {
         rendition.next();
       });
 
-      document.getElementById("prev").addEventListener("click", function() {
+      document.getElementById("prev").addEventListener("click", function () {
         rendition.prev();
       });
 
@@ -54,16 +54,22 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <input type="file" accept=".epub" onChange={handleFileUpload} />
-        <div className="viewer-frame">
-          <div id="viewer" style={{ width: "100%", height: "600px" }}></div>
+        <div className="container-1">
+        <div className="container-upload">
+          <input type="file" accept=".epub" onChange={handleFileUpload} />
+          </div>
+          <div className="viewer-frame">
+            <div id="viewer" style={{ width: "100%", height: "600px" }}></div>
+          </div>
+          <div className="container-next-prev">
+          <button id="prev" type="button" className="btn">
+            <FaArrowLeft /> Previous
+          </button>
+          <button id="next" type="button" className="btn">
+            Next <FaArrowRight />
+          </button>
+          </div>
         </div>
-        <button id="prev" type="button" className="btn">
-          <FaArrowLeft /> Previous
-        </button>
-        <button id="next" type="button" className="btn">
-          Next <FaArrowRight />
-        </button>
       </main>
     </div>
   );
